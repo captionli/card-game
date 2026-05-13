@@ -1,0 +1,12 @@
+<view class="card {{faceDown ? 'face-down' : ''}} {{disabled ? 'disabled' : ''}} {{selected ? 'selected' : ''}} {{compact ? 'compact' : ''}} {{colorClass}} {{isNew ? 'pop-in' : ''}} anchor-class"
+      bindtap="onTap">
+  <block wx:if="{{!faceDown}}">
+    <view class="corner">
+      <text class="rank">{{displayLabel}}</text>
+      <text class="suit-symbol">{{suit}}</text>
+    </view>
+  </block>
+  <block wx:else>
+    <view class="card-back-pattern"></view>
+  </block>
+</view>

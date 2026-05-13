@@ -1,0 +1,26 @@
+<view class="table-board">
+  <view class="col"
+        wx:for="{{cols}}"
+        wx:key="*this"
+        wx:for-item="col">
+    <view class="suit-group"
+          wx:for="{{col.suits}}"
+          wx:key="suit"
+          wx:for-item="sg">
+      <text class="suit-label {{sg.red ? 'red' : 'black'}}">{{sg.suit}}</text>
+      <view class="card-stack">
+        <card-cmp
+          wx:for="{{sg.cards}}"
+          wx:key="key"
+          style="margin-left: {{index === 0 ? '0' : '-16rpx'}}; z-index: {{index}}"
+          suit="{{item.suit}}"
+          rank="{{item.rank}}"
+          compact="{{true}}"
+          isNew="{{item.isNew}}"
+          anchor-class="{{item.isAnchor7 ? 'anchor-7' : ''}}"
+        />
+        <view wx:if="{{sg.cards.length === 0}}" class="empty-hint"><text>—</text></view>
+      </view>
+    </view>
+  </view>
+</view>

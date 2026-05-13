@@ -1,0 +1,49 @@
+.player-area {
+  display: flex;
+  align-items: center;
+  gap: 6rpx;
+  padding: 4rpx 10rpx;
+  border-radius: 6rpx;
+}
+
+.player-area.active-turn {
+  background: #fff9e6;
+}
+
+.avatar {
+  width: 28rpx;
+  height: 28rpx;
+  border-radius: 50%;
+  background: #e0e0e0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.avatar-active {
+  background: #f0ad4e;
+}
+
+.avatar-text {
+  font-size: 14rpx;
+  font-weight: 600;
+  color: #fff;
+}
+
+.name {
+  font-size: 20rpx;
+  color: #333;
+  font-weight: 500;
+}
+
+.score {
+  font-size: 18rpx;
+  color: #fa5151;
+  font-weight: 500;
+}
+
+.wcount {
+  font-size: 18rpx;
+  color: #f0ad4e;
+}

@@ -1,0 +1,55 @@
+.table-board {
+  display: flex;
+  gap: 24rpx;
+  padding: 8rpx 16rpx;
+  background: #e8f5e9;
+  border-radius: 12rpx;
+  border: 1rpx solid #d0e8d2;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+  gap: 8rpx;
+}
+
+.suit-group {
+  display: flex;
+  align-items: center;
+  gap: 6rpx;
+  width: 344rpx;
+  flex-shrink: 0;
+}
+
+.suit-label {
+  font-size: 26rpx;
+  font-weight: 600;
+  width: 32rpx;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.suit-label.red { color: #e74c3c; }
+.suit-label.black { color: #555; }
+
+.card-stack {
+  display: flex;
+  align-items: center;
+  width: 306rpx;
+  height: 52rpx;
+  flex-shrink: 0;
+}
+
+.empty-hint {
+  width: 306rpx;
+  height: 52rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16rpx;
+  color: #c0d8c4;
+}

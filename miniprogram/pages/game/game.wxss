@@ -1,0 +1,313 @@
+.game-page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: #f0f2f5;
+  overflow: hidden;
+}
+
+/* ===== 顶部对手 ===== */
+.opponents-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 6rpx 16rpx;
+  background: #fff;
+  border-bottom: 1rpx solid #eee;
+  flex-shrink: 0;
+}
+
+.back-btn {
+  display: flex;
+  align-items: center;
+  gap: 2rpx;
+  padding: 4rpx 12rpx;
+  border-radius: 6rpx;
+  flex-shrink: 0;
+}
+
+.back-icon {
+  font-size: 24rpx;
+  color: #666;
+}
+
+.back-text {
+  font-size: 20rpx;
+  color: #999;
+}
+
+/* ===== 桌面 + 底部容器 ===== */
+.lower-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 0;
+}
+
+/* ===== 桌面 ===== */
+.table-wrap {
+  display: flex;
+  justify-content: center;
+  flex: 1;
+  min-height: 0;
+  padding: 0 12rpx;
+}
+
+/* ===== 底部 ===== */
+.self-area {
+  background: #fff;
+  border-top: 1rpx solid #eee;
+  padding: 2rpx 12rpx 4rpx;
+}
+
+.action-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 30rpx;
+}
+
+.my-score {
+  font-size: 20rpx;
+  color: #fa5151;
+  font-weight: 600;
+  align-self: center;
+}
+
+.status {
+  font-size: 20rpx;
+  color: #666;
+}
+
+.status.red {
+  color: #fa5151;
+}
+
+.btns {
+  display: flex;
+  gap: 8rpx;
+  align-items: center;
+}
+
+.btn-play, .btn-withhold {
+  width: 80rpx;
+  height: 30rpx;
+  border-radius: 6rpx;
+  font-size: 20rpx;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  color: #fff;
+}
+
+.btn-play { background: #07c160; }
+.btn-play[disabled] { background: #b7ebce; }
+
+.btn-withhold { background: #fa5151; }
+.btn-withhold[disabled] { background: #fcc; }
+
+.btn-swap {
+  width: 120rpx;
+  height: 30rpx;
+  border-radius: 6rpx;
+  font-size: 20rpx;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  color: #fff;
+  background: #f0ad4e;
+}
+
+.btn-swap[disabled] { background: #fde4c2; }
+
+.swap-info {
+  font-size: 20rpx;
+  color: #f0ad4e;
+  font-weight: 500;
+}
+
+/* 手牌 + 扣牌并排 */
+.hand-row {
+  display: flex;
+  gap: 6rpx;
+}
+
+.hand-scroll {
+  flex: 1;
+  white-space: nowrap;
+  min-width: 0;
+}
+
+.hand-stack {
+  display: inline-flex;
+  gap: 4rpx;
+  padding: 2rpx 0;
+}
+
+/* 扣牌右侧 */
+.withheld-box {
+  flex-shrink: 0;
+  width: 72rpx;
+  background: #fafafa;
+  border-radius: 6rpx;
+  border: 1rpx solid #eee;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.wl {
+  font-size: 16rpx;
+  color: #bbb;
+  padding: 2rpx 0;
+}
+
+.wscroll {
+  height: 64rpx;
+  width: 100%;
+}
+
+.mc {
+  width: 56rpx;
+  height: 24rpx;
+  border-radius: 3rpx;
+  background: #fff;
+  border: 1rpx solid #e0e0e0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16rpx;
+  margin: 1rpx auto;
+}
+
+.mc.r { color: #e74c3c; }
+.mc.b { color: #333; }
+
+.no {
+  font-size: 14rpx;
+  color: #ccc;
+  text-align: center;
+}
+
+/* ===== 结算 ===== */
+.overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.dialog {
+  width: 440rpx;
+  background: #fff;
+  border-radius: 12rpx;
+  padding: 20rpx 20rpx 16rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12rpx;
+}
+
+.dt {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.dl {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 4rpx;
+}
+
+.di {
+  display: flex;
+  align-items: center;
+  padding: 8rpx 12rpx;
+  background: #f8f8f8;
+  border-radius: 6rpx;
+  gap: 8rpx;
+}
+
+.di.me {
+  background: #fff9e6;
+  border: 1rpx solid #f0d060;
+}
+
+.dr {
+  font-size: 24rpx;
+  font-weight: bold;
+  color: #f0ad4e;
+  width: 40rpx;
+}
+
+.dn {
+  flex: 1;
+  font-size: 22rpx;
+  color: #333;
+}
+
+.ds {
+  font-size: 18rpx;
+  color: #999;
+  width: 120rpx;
+  flex-shrink: 0;
+  text-align: right;
+}
+
+.dw {
+  display: flex;
+  gap: 4rpx;
+  flex-wrap: wrap;
+}
+
+.dwc {
+  font-size: 18rpx;
+  padding: 1rpx 4rpx;
+  border-radius: 3rpx;
+  background: #f0f0f0;
+}
+
+.dwc.r { color: #e74c3c; }
+.dwc.b { color: #333; }
+
+.dwe {
+  font-size: 16rpx;
+  color: #ccc;
+}
+
+.da {
+  display: flex;
+  gap: 12rpx;
+  width: 100%;
+}
+
+.dab, .dab2 {
+  flex: 1;
+  height: 44rpx;
+  border-radius: 8rpx;
+  font-size: 22rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+}
+
+.dab {
+  background: #07c160;
+  color: #fff;
+}
+
+.dab2 {
+  background: #f5f5f5;
+  color: #666;
+}

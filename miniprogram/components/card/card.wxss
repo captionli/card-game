@@ -1,0 +1,95 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 48rpx;
+  height: 64rpx;
+  border-radius: 6rpx;
+  background: #fff;
+  border: 1rpx solid #e0e0e0;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  position: relative;
+  transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s;
+  box-shadow: 0 1rpx 4rpx rgba(0,0,0,0.06);
+}
+
+/* 左上角点数+花色（真实扑克风格） */
+.corner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rpx 0 0 4rpx;
+}
+
+/* 桌面小牌 */
+.card.compact {
+  width: 38rpx;
+  height: 52rpx;
+  border-radius: 4rpx;
+  box-shadow: 0 1rpx 2rpx rgba(0,0,0,0.05);
+}
+
+.card.compact .corner { padding: 2rpx 0 0 3rpx; }
+.card.compact .rank { font-size: 17rpx; }
+.card.compact .suit-symbol { font-size: 15rpx; }
+
+.card.red { color: #e74c3c; }
+.card.black { color: #333; }
+
+.card .rank {
+  font-size: 20rpx;
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+.card .suit-symbol {
+  font-size: 16rpx;
+  line-height: 1.1;
+}
+
+/* 不可出 */
+.card.disabled { opacity: 0.35; }
+
+/* 选中 */
+.card.selected {
+  transform: translateY(-14rpx);
+  box-shadow: 0 6rpx 20rpx rgba(0,0,0,0.15);
+  border-color: #f0ad4e;
+  border-width: 2rpx;
+}
+
+/* 牌背 */
+.card.face-down {
+  background: linear-gradient(135deg, #4a90d9, #357abd);
+  border-color: #2b6090;
+}
+
+.card-back-pattern {
+  width: 70%;
+  height: 70%;
+  border-radius: 3rpx;
+  border: 1rpx solid rgba(255,255,255,0.2);
+  background: repeating-linear-gradient(
+    45deg, transparent, transparent 3rpx,
+    rgba(255,255,255,0.06) 3rpx, rgba(255,255,255,0.06) 6rpx
+  );
+}
+
+/* 新出牌动画 */
+.card.pop-in {
+  animation: popIn 0.25s ease-out;
+}
+
+@keyframes popIn {
+  0% { transform: scale(1.4); opacity: 0.3; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* 7号锚点 */
+.card.anchor-7 {
+  border-color: #f0ad4e !important;
+  border-width: 2rpx !important;
+  box-shadow: 0 0 6rpx rgba(240,173,78,0.4) !important;
+}

@@ -1,0 +1,89 @@
+<view class="game-page">
+  <!-- 顶部对手 -->
+  <view class="opponents-bar">
+    <view class="back-btn" bindtap="onBackHome">
+      <text class="back-icon">←</text>
+      <text class="back-text">退出</text>
+    </view>
+    <player-area player="{{players[1]}}" totalScore="{{totalScores[1]}}" isCurrent="{{currentSeat === 1}}" />
+    <player-area player="{{players[2]}}" totalScore="{{totalScores[2]}}" isCurrent="{{currentSeat === 2}}" />
+    <player-area player="{{players[3]}}" totalScore="{{totalScores[3]}}" isCurrent="{{currentSeat === 3}}" />
+  </view>
+
+  <!-- 桌面 + 底部 -->
+  <view class="lower-area">
+    <view class="table-wrap">
+      <table-board table="{{tableDisplay}}" lastPlayedCard="{{lastPlayedCard}}" />
+    </view>
+    <view class="self-area">
+    <view class="action-bar">
+      <text class="status {{statusRed ? 'red' : ''}}">{{statusText}}</text>
+      <view class="btns">
+        <text class="my-score" wx:if="{{totalScores[0] > 0 && !swapPhase}}">{{totalScores[0]}}分</text>
+        <block wx:if="{{swapPhase}}">
+          <block wx:if="{{phase === 'swap'}}">
+            <text class="swap-info">{{swapSelected.length}}/3 · {{swapSum}}点</text>
+            <button class="btn-swap" disabled="{{swapSelected.length !== 3}}" bindtap="onConfirmSwap">换牌</button>
+          </block>
+          <block wx:else>
+            <button class="btn-play" bindtap="onConfirmPreview">确定</button>
+          </block>
+        </block>
+        <block wx:else>
+          <button class="btn-play" disabled="{{playDisabled}}" bindtap="onPlay">出牌</button>
+          <button class="btn-withhold" disabled="{{withholdDisabled}}" bindtap="onWithhold">扣牌</button>
+        </block>
+      </view>
+    </view>
+    <view class="hand-row">
+      <scroll-view scroll-x class="hand-scroll">
+        <view class="hand-stack">
+          <card-cmp
+            wx:for="{{displayHand}}"
+            wx:key="key"
+            style="z-index: {{index}}"
+            suit="{{item.suit}}"
+            rank="{{item.rank}}"
+            disabled="{{item.disabled}}"
+            selected="{{item.selected}}"
+            bind:cardtap="{{swapPhase ? 'onSwapTap' : 'onCardTap'}}"
+          />
+        </view>
+      </scroll-view>
+      <view class="withheld-box">
+        <text class="wl">扣牌</text>
+        <scroll-view scroll-y class="wscroll">
+          <block wx:for="{{withheldDisplay}}" wx:key="key" wx:for-item="c">
+            <view class="mc {{c.red ? 'r' : 'b'}}">{{c.suit}}{{c.label}}</view>
+          </block>
+          <text wx:if="{{withheldDisplay.length === 0}}" class="no">—</text>
+        </scroll-view>
+      </view>
+    </view>
+    </view>
+  </view>
+
+  <!-- 结算 -->
+  <view class="overlay" wx:if="{{showResult}}">
+    <view class="dialog">
+      <text class="dt">第{{roundNumber}}轮结束</text>
+      <view class="dl">
+        <view class="di {{item.isHuman ? 'me' : ''}}" wx:for="{{results}}" wx:key="rank" wx:for-item="item">
+          <text class="dr">#{{item.rank}}</text>
+          <text class="dn">{{item.name}}</text>
+          <text class="ds">本轮{{item.score}} · 共{{item.total}}</text>
+          <view class="dw">
+            <block wx:for="{{item.withheld}}" wx:key="*this" wx:for-item="c">
+              <text class="dwc {{c.red ? 'r' : 'b'}}">{{c.suit}}{{c.label}}</text>
+            </block>
+            <text wx:if="{{item.withheld.length === 0}}" class="dwe">无扣牌</text>
+          </view>
+        </view>
+      </view>
+      <view class="da">
+        <button class="dab" bindtap="onNextRound">下一轮</button>
+        <button class="dab2" bindtap="onFinishGame">结束游戏</button>
+      </view>
+    </view>
+  </view>
+</view>

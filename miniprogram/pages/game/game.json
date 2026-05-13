@@ -1,0 +1,8 @@
+{
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "player-area": "../../components/player-area/player-area",
+    "table-board": "../../components/table-board/table-board",
+    "card-cmp": "../../components/card/card"
+  }
+}

@@ -1,0 +1,13 @@
+<view class="lobby">
+  <text class="title">憋 7</text>
+  <view class="cols">
+    <view class="col">
+      <button class="btn go" bindtap="startNormal">普通模式</button>
+      <button class="btn swap" bindtap="startSwap">换三张模式</button>
+    </view>
+    <view class="col">
+      <button class="btn off" bindtap="goToLobby" disabled>创建房间</button>
+      <button class="btn off" bindtap="goToLobby" disabled>加入房间</button>
+    </view>
+  </view>
+</view>

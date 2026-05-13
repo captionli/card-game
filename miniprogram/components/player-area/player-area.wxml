@@ -1,0 +1,8 @@
+<view class="player-area {{isCurrent ? 'active-turn' : ''}}">
+  <view class="avatar {{isCurrent ? 'avatar-active' : ''}}">
+    <text class="avatar-text">{{player.name[0]}}</text>
+  </view>
+  <text class="name">{{player.name}}</text>
+  <text class="score" wx:if="{{totalScore > 0}}">{{totalScore}}分</text>
+  <text class="wcount" wx:if="{{player.withheld.length > 0}}">扣{{player.withheld.length}}</text>
+</view>
